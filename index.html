@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline PDF Merger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+  <div class="top-row">
+    <div>
+      <span class="badge">● Works fully offline — no upload, no server</span>
+      <h1>PDF Merger</h1>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
+  </div>
+  <p class="sub">Combine multiple PDFs into one file. Everything happens locally in your browser — your files never leave your computer.</p>
+
+  <div class="dropzone" id="dropzone">
+    <div><strong>Drop PDF files here</strong> or click to browse</div>
+  </div>
+  <input type="file" id="fileInput" accept="application/pdf" multiple>
+
+  <ul id="fileList"></ul>
+  <p class="empty-msg" id="emptyMsg">No files added yet.</p>
+
+  <div class="options">
+    <label>
+      <input type="checkbox" id="optBookmarks" checked>
+      <span>
+        Add a bookmark for each file
+        <span class="desc">Creates a navigable outline in the merged PDF — one entry per source file, jumping to where it starts.</span>
+      </span>
+    </label>
+    <label>
+      <input type="checkbox" id="optRenameFields" checked>
+      <span>
+        Avoid form field name clashes
+        <span class="desc">If your PDFs contain fillable form fields, renames them per file so values don't overwrite each other.</span>
+      </span>
+    </label>
+  </div>
+
+  <div class="actions">
+    <button class="secondary" id="clearBtn">Clear all</button>
+    <button class="primary" id="mergeBtn" disabled>Merge &amp; Download</button>
+  </div>
+  <div id="status"></div>
+</div>
+
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="vendor/pdf.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
